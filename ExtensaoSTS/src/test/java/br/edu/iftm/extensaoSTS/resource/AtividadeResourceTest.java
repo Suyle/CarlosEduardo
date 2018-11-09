@@ -1,4 +1,4 @@
-package br.edu.iftm.extensaoSTS.resources;
+package br.edu.iftm.extensaoSTS.resource;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -31,16 +31,17 @@ public class AtividadeResourceTest {
 		this.mvc = MockMvcBuilders.webAppContextSetup(this.context).build();
 	}
 	
-	/*@Test
-	public void testaId() throws Exception {
+	@Test
+	public void testaId() throws Exception{
 		this.mvc.perform(get(uri))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("nome", is("Visita Tecnica GDG 2018")));
-	}*/
+	}
 	
 	@Test
-	public void testaNotFound() throws Exception {
+	public void testeNotFound() throws Exception {
 		this.mvc.perform(get("/atividades/10"))
-			.andExpect(status().isNotFound());
+		.andExpect(status().isNotFound());
 	}
+	
 }
